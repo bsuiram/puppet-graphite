@@ -8,8 +8,7 @@
 # None.
 #
 class graphite::params (
-  $build_dir = '/usr/local/src/'
-
+  $build_dir          = '/usr/local/src/',
   $python_pip_pkg     = 'python-pip',
   $django_tagging_pkg = 'django-tagging',
   $django_tagging_ver = '0.3.1',
