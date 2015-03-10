@@ -54,10 +54,10 @@ class graphite::params (
       $python_dev_pkg = 'python-dev'
 
       # see https://github.com/graphite-project/carbon/issues/86
-      $carbon_pip_hack_source = "/usr/lib/python2.7/dist-packages/carbon-${carbon_ver}-py2.7.egg-info"
-      $carbon_pip_hack_target = "/opt/graphite/lib/carbon-${carbon_ver}-py2.7.egg-info"
-      $gweb_pip_hack_source   = "/usr/lib/python2.7/dist-packages/graphite_web-${graphite_ver}-py2.7.egg-info"
-      $gweb_pip_hack_target   = "/opt/graphite/webapp/graphite_web-${graphite_ver}-py2.7.egg-info"
+      $carbon_pip_hack_source = "/usr/lib/python2.7/dist-packages/carbon-${graphite::params::carbon_ver}-py2.7.egg-info"
+      $carbon_pip_hack_target = "/opt/graphite/lib/carbon-${graphite::params::carbon_ver}-py2.7.egg-info"
+      $gweb_pip_hack_source   = "/usr/lib/python2.7/dist-packages/graphite_web-${graphite::params::graphite_ver}-py2.7.egg-info"
+      $gweb_pip_hack_target   = "/opt/graphite/webapp/graphite_web-${graphite::params::graphite_ver}-py2.7.egg-info"
 
       $graphitepkgs = [
         'python-tz',
