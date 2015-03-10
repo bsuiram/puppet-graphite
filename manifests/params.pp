@@ -32,10 +32,11 @@ class graphite::params (
 
   $carbon_dl_url = "https://github.com/graphite-project/carbon/archive/${carbon_ver}.tar.gz"
   $carbon_dl_loc = "${build_dir}/carbon-${carbon_ver}"
-
   $install_prefix      = '/opt/'
   $enable_carbon_relay = false
   $nginxconf_dir       = '/etc/nginx/sites-available'
+
+  notify {"Params.pp - Carbon ver=${carbon_ver}, Graphite ver=${graphite_ver}, Twisted ver = ${twisted_ver} ":}
 
   case $::osfamily {
     'Debian': {
