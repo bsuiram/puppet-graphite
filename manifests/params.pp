@@ -7,8 +7,9 @@
 #
 # None.
 #
-class graphite::params (
+class graphite::params {
   $build_dir          = '/usr/local/src/',
+
   $python_pip_pkg     = 'python-pip',
   $django_tagging_pkg = 'django-tagging',
   $django_tagging_ver = '0.3.1',
@@ -22,21 +23,21 @@ class graphite::params (
   $carbon_ver         = '0.9.13',
   $whisper_pkg        = 'whisper',
   $whisper_ver        = '0.9.13',
-) {
 
-  $whisper_dl_url = "http://github.com/graphite-project/whisper/archive/${$whisper_ver}.tar.gz"
-  $whisper_dl_loc = "${build_dir}/whisper-${$whisper_ver}"
+  $whisper_dl_url = "http://github.com/graphite-project/whisper/archive/${$::graphite::params::whisper_ver}.tar.gz"
+  $whisper_dl_loc = "${build_dir}/whisper-${$::graphite::params::whisper_ver}"
 
-  $webapp_dl_url = "http://github.com/graphite-project/graphite-web/archive/${graphite_ver}.tar.gz"
-  $webapp_dl_loc = "${build_dir}/graphite-web-${graphite_ver}"
+  $webapp_dl_url = "http://github.com/graphite-project/graphite-web/archive/${::graphite::params::graphite_ver}.tar.gz"
+  $webapp_dl_loc = "${build_dir}/graphite-web-${::graphite::params::graphite_ver}"
 
-  $carbon_dl_url = "https://github.com/graphite-project/carbon/archive/${carbon_ver}.tar.gz"
-  $carbon_dl_loc = "${build_dir}/carbon-${carbon_ver}"
+  $carbon_dl_url = "https://github.com/graphite-project/carbon/archive/${::graphite::params::carbon_ver}.tar.gz"
+  $carbon_dl_loc = "${build_dir}/carbon-${::graphite::params::carbon_ver}"
   $install_prefix      = '/opt/'
   $enable_carbon_relay = false
   $nginxconf_dir       = '/etc/nginx/sites-available'
 
   notify {"Params.pp - Carbon ver=${carbon_ver}, Graphite ver=${graphite_ver}, Twisted ver = ${twisted_ver} ":}
+  notify {"Params.pp - Carbon ver=${::graphite::params::carbon_ver}, Graphite ver=${::graphite::params::graphite_ver}, Twisted ver = ${::graphite::params::twisted_ver} ":}
 
   case $::osfamily {
     'Debian': {
