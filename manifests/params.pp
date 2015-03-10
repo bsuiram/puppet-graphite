@@ -8,21 +8,21 @@
 # None.
 #
 class graphite::params {
-  $build_dir          = '/usr/local/src/',
+  $build_dir          = '/usr/local/src/'
 
-  $python_pip_pkg     = 'python-pip',
-  $django_tagging_pkg = 'django-tagging',
-  $django_tagging_ver = '0.3.1',
-  $twisted_pkg        = 'Twisted',
-  $twisted_ver        = '13.2.0',
-  $txamqp_pkg         = 'txAMQP',
-  $txamqp_ver         = '0.4',
-  $graphite_pkg       = 'graphite-web',
-  $graphite_ver       = '0.9.13',
-  $carbon_pkg         = 'carbon',
-  $carbon_ver         = '0.9.13',
-  $whisper_pkg        = 'whisper',
-  $whisper_ver        = '0.9.13',
+  $python_pip_pkg     = 'python-pip'
+  $django_tagging_pkg = 'django-tagging'
+  $django_tagging_ver = '0.3.1'
+  $twisted_pkg        = 'Twisted'
+  $twisted_ver        = '13.2.0'
+  $txamqp_pkg         = 'txAMQP'
+  $txamqp_ver         = '0.4'
+  $graphite_pkg       = 'graphite-web'
+  $graphite_ver       = '0.9.13'
+  $carbon_pkg         = 'carbon'
+  $carbon_ver         = '0.9.13'
+  $whisper_pkg        = 'whisper'
+  $whisper_ver        = '0.9.13'
 
   $whisper_dl_url = "http://github.com/graphite-project/whisper/archive/${$::graphite::params::whisper_ver}.tar.gz"
   $whisper_dl_loc = "${build_dir}/whisper-${$::graphite::params::whisper_ver}"
