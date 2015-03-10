@@ -14,15 +14,15 @@ class graphite::params {
   $django_tagging_pkg = 'django-tagging'
   $django_tagging_ver = '0.3.1'
   $twisted_pkg        = 'Twisted'
-  $twisted_ver        = '13.2.0'
+  $twisted_ver        = '11.1.0'
   $txamqp_pkg         = 'txAMQP'
   $txamqp_ver         = '0.4'
   $graphite_pkg       = 'graphite-web'
-  $graphite_ver       = '0.9.13'
+  $graphite_ver       = '0.9.12'
   $carbon_pkg         = 'carbon'
-  $carbon_ver         = '0.9.13'
+  $carbon_ver         = '0.9.12'
   $whisper_pkg        = 'whisper'
-  $whisper_ver        = '0.9.13'
+  $whisper_ver        = '0.9.12'
 
   $whisper_dl_url = "http://github.com/graphite-project/whisper/archive/${$::graphite::params::whisper_ver}.tar.gz"
   $whisper_dl_loc = "${build_dir}/whisper-${$::graphite::params::whisper_ver}"
@@ -37,7 +37,7 @@ class graphite::params {
   $nginxconf_dir       = '/etc/nginx/sites-available'
 
   notify {"Params.pp - Carbon ver=${carbon_ver}, Graphite ver=${graphite_ver}, Twisted ver = ${twisted_ver} ":}
-  notify {"Params.pp hiera - Carbon ver=${::graphite::params::carbon_ver}, Graphite ver=${::graphite::params::graphite_ver}, Twisted ver = ${::graphite::params::twisted_ver} ":}
+  notify {"Params.pp hiera - Carbon ver=${::graphite::carbon_ver}, Graphite ver=${::graphite::graphite_ver}, Twisted ver = ${::graphite::twisted_ver} ":}
 
   case $::osfamily {
     'Debian': {
