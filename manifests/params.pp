@@ -37,7 +37,7 @@ class graphite::params {
   $nginxconf_dir       = '/etc/nginx/sites-available'
 
   notify {"Params.pp - Carbon ver=${carbon_ver}, Graphite ver=${graphite_ver}, Twisted ver = ${twisted_ver} ":}
-  notify {"Params.pp hiera - Carbon ver=${::graphite::carbon_ver}, Graphite ver=${::graphite::graphite_ver}, Twisted ver = ${::graphite::twisted_ver} ":}
+  notify {"Params.pp hiera - Carbon ver=${::graphite::gr_carbon_ver}, Graphite ver=${::graphite::gr_graphite_ver}, Twisted ver = ${::graphite::gr_twisted_ver} ":}
 
   case $::osfamily {
     'Debian': {
