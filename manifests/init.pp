@@ -172,6 +172,10 @@
 #   Default is '0.0.0.0'
 # [*gr_relay_line_port*]
 #   Default is 2013.
+# [*gr_relay_udp_interface*]
+#   Default is '0.0.0.0'
+# [*gr_relay_udp_port*]
+#   Defaul is 2003.
 # [*gr_relay_pickle_interface*]
 #   Default is '0.0.0.0'
 # [*gr_relay_pickle_port*]
@@ -509,6 +513,8 @@ class graphite (
   $gr_relay_enable_udp_listener          = false,
   $gr_relay_line_interface               = '0.0.0.0',
   $gr_relay_line_port                    = 2013,
+  $gr_relay_udp_interface                = '0.0.0.0',
+  $gr_relay_udp_port                     = 2003,
   $gr_relay_pickle_interface             = '0.0.0.0',
   $gr_relay_pickle_port                  = 2014,
   $gr_relay_method                       = 'rules',

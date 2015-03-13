@@ -242,6 +242,8 @@ LINE_RECEIVER_INTERFACE = <%= scope.lookupvar('graphite::gr_relay_line_interface
 LINE_RECEIVER_PORT = <%= scope.lookupvar('graphite::gr_relay_line_port') %>
 PICKLE_RECEIVER_INTERFACE = <%= scope.lookupvar('graphite::gr_relay_pickle_interface') %>
 PICKLE_RECEIVER_PORT = <%= scope.lookupvar('graphite::gr_relay_pickle_port') %>
+UDP_RECEIVER_INTERFACE = <%= scope.lookupvar('graphite::gr_relay_udp_interface') %>
+UDP_RECEIVER_PORT = <%= scope.lookupvar('graphite::gr_relay_udp_port') %>
 
 # Set to false to disable logging of successful connections
 LOG_LISTENER_CONNECTIONS = True
