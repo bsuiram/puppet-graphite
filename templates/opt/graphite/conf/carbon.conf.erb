@@ -230,6 +230,9 @@ AMQP_METRIC_NAME_IN_BODY = <%= scope.lookupvar('graphite::gr_amqp_metric_name_in
 # Enable daily log rotation. If disabled, a kill -HUP can be used after a manual rotate
 ENABLE_LOGROTATION = True
 
+# Enable udp listner for relay
+ENABLE_UDP_LISTENER = <%= scope.lookupvar('graphite::gr_relay_enable_udp_listener') %>
+
 # Specify the user to drop privileges to
 # If this is blank carbon runs as the user that invokes it
 # This user must have write access to the local data directory
