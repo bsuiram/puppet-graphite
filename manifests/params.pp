@@ -35,9 +35,6 @@ class graphite::params (
   $enable_carbon_relay = false
   $nginxconf_dir       = '/etc/nginx/sites-available'
 
-  notify {"Params.pp - Carbon ver=${carbon_ver}, Graphite ver=${graphite_ver}, Twisted ver = ${twisted_ver} ":}
-  notify {"Params.pp hiera - Carbon ver=${graphite::params::carbon_ver}, Graphite ver=${graphite::params::graphite_ver}, Twisted ver = ${graphite::params::twisted_ver} ":}
-
   case $::osfamily {
     'Debian': {
       $apache_dir                = '/etc/apache2'
@@ -103,11 +100,11 @@ class graphite::params (
       # see https://github.com/graphite-project/carbon/issues/86
       case $::operatingsystemrelease {
         /^6\.\d+$/: {
-          $carbon_pip_hack_source     = "/usr/lib/python2.6/site-packages/carbon-${carbon_ver}-py2.6.egg-info"
-          $carbon_pip_hack_target     = "/opt/graphite/lib/carbon-${carbon_ver}-py2.6.egg-info"
+          $carbon_pip_hack_source  = "/usr/lib/python2.6/site-packages/carbon-${carbon_ver}-py2.6.egg-info"
+          $carbon_pip_hack_target  = "/opt/graphite/lib/carbon-${carbon_ver}-py2.6.egg-info"
           $apache_24               = false
-          $gweb_pip_hack_source       = "/usr/lib/python2.6/site-packages/graphite_web-${graphite_ver}-py2.6.egg-info"
-          $gweb_pip_hack_target       = "/opt/graphite/webapp/graphite_web-${graphite_ver}-py2.6.egg-info"
+          $gweb_pip_hack_source    = "/usr/lib/python2.6/site-packages/graphite_web-${graphite_ver}-py2.6.egg-info"
+          $gweb_pip_hack_target    = "/opt/graphite/webapp/graphite_web-${graphite_ver}-py2.6.egg-info"
           $graphitepkgs = [
             'Django14',
             'MySQL-python',
@@ -126,11 +123,11 @@ class graphite::params (
         }
 
         /^7\.\d+/: {
-          $carbon_pip_hack_source     = "/usr/lib/python2.7/site-packages/carbon-${carbon_ver}-py2.7.egg-info"
-          $carbon_pip_hack_target     = "/opt/graphite/lib/carbon-${carbon_ver}-py2.7.egg-info"
-          $apache_24               = true
-          $gweb_pip_hack_source       = "/usr/lib/python2.7/site-packages/graphite_web-${graphite_ver}-py2.7.egg-info"
-          $gweb_pip_hack_target       = "/opt/graphite/webapp/graphite_web-${carbon_ver}-py2.7.egg-info"
+          $carbon_pip_hack_source = "/usr/lib/python2.7/site-packages/carbon-${carbon_ver}-py2.7.egg-info"
+          $carbon_pip_hack_target = "/opt/graphite/lib/carbon-${carbon_ver}-py2.7.egg-info"
+          $apache_24              = true
+          $gweb_pip_hack_source   = "/usr/lib/python2.7/site-packages/graphite_web-${graphite_ver}-py2.7.egg-info"
+          $gweb_pip_hack_target   = "/opt/graphite/webapp/graphite_web-${graphite_ver}-py2.7.egg-info"
           $graphitepkgs = [
             'python-django',
             'MySQL-python',
